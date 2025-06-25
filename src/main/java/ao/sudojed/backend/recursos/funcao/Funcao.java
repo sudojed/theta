@@ -5,14 +5,18 @@ import java.util.HashMap;
 public abstract class Funcao {
     private String leiFormacao;
     private String dominio;
+    private String contradominio;
     private String zeros;
     private String paridade;
     private String variacaoSinal;
+    private String continuidade;
     private HashMap<String, String> monotonia;
     private HashMap<String, String> concavidade;
 
     public abstract void limitar(int tendencia);
+
     public abstract void derivar();
+
     public abstract void integrar();
 
     // Getters and setters
@@ -70,5 +74,13 @@ public abstract class Funcao {
 
     public void setLeiFormacao(String leiFormacao) {
         this.leiFormacao = leiFormacao;
+    }
+
+    public String getContradominio() {
+        return contradominio;
+    }
+
+    public void setContradominio(String contradominio) {
+        this.contradominio = contradominio;
     }
 }
