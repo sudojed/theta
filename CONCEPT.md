@@ -1,0 +1,4 @@
+O **Epsilon** é projeto que surgiu da iniciativa de Abner Lourenço, estudante de IT & Multimedia, para
+de aprender Matemática de forma autônoma. Ele começou com um simples conjunto de classes que representavam tipos de funções (polinomiais até trig_functions) e os seus respecivos atributos e comportamentos. A iniciativa cresceu e decidiu-se implementar app que sai da camada do terminal para uma GUI que permita que o utilizador aprenda de forma autônoma e eficiente. No mesmo, além de aprender, ele poderá exercitar, montar programas de estudo, ter acesso à serviços de resolução de exercícios com os passos essenciais e com os possíveis métodos d resolução.
+
+
