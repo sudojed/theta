@@ -1,4 +1,4 @@
-package main.java.ao.sudojed.backend.recursos.funcao;
+package ao.sudojed.backend.recursos.funcao;
 
 import java.util.HashMap;
 
