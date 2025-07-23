@@ -11,7 +11,7 @@ public abstract class Funcao {
     private String variacaoSinal;
     private String continuidade;
     private HashMap<String, String> monotonia;
-    private HashMap<String, String> concavidade;
+    private HashMap<String, String> concavidade; 
 
     public abstract void limitar(int tendencia);
 
