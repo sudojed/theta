@@ -1,86 +1,84 @@
 package ao.sudojed.backend.recursos.funcao;
 
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+// Enum para Paridade
+enum ParidadeEnum {
+    PAR,
+    IMPAR,
+    NENHUMA
+}
+
+// Enum para Tendência (para limites)
+enum Tendencia {
+    MAIS_INFINITO,
+    MENOS_INFINITO,
+    FINITO // Para limites em um ponto específico
+}
+
+// Classe de suporte para representar intervalos (simplificado)
+class Intervalo {
+    private double inicio;
+    private double fim;
+    // Poderia ter flags para inclusão/exclusão dos limites
+    public Intervalo(double inicio, double fim) {
+        this.inicio = inicio;
+        this.fim = fim;
+    }
+    // Getters
+    @Override
+    public String toString() {
+        return "[" + inicio + ", " + fim + "]";
+    }
+}
 
 public abstract class Funcao {
-    private String leiFormacao;
-    private String dominio;
-    private String contradominio;
-    private String zeros;
-    private String paridade;
-    private String variacaoSinal;
-    private String continuidade;
-    private HashMap<String, String> monotonia;
-    private HashMap<String, String> concavidade; 
+    protected String leiFormacao; // Continua como String para representação
+    protected String continuidade; // Pode ser um Enum mais tarde
 
-    public abstract void limitar(int tendencia);
+    // Mudanças de String para tipos mais específicos
+    protected List<Intervalo> dominio;
+    protected List<Intervalo> contradominio; // Pode ser List<Intervalo> ou String dependendo da complexidade
+    protected List<Double> zeros; // Lista de valores dos zeros
+    protected ParidadeEnum paridade; // Enum para paridade
+    protected Map<Intervalo, String> variacaoSinal; // Map de Intervalo para "Positivo", "Negativo"
+    protected Map<Intervalo, String> monotonia; // Map de Intervalo para "Crescente", "Decrescente"
+    protected Map<Intervalo, String> concavidade; // Map de Intervalo para "Concava Para Cima", "Concava Para Baixo"
 
-    public abstract void derivar();
-
-    public abstract void integrar();
-
-    // Getters and setters
-    public String getDominio() {
-        return dominio;
-    }
-
-    public void setDominio(String dominio) {
-        this.dominio = dominio;
-    }
-
-    public String getZeros() {
-        return zeros;
-    }
-
-    public void setZeros(String zeros) {
-        this.zeros = zeros;
-    }
-
-    public String getParidade() {
-        return paridade;
-    }
-
-    public void setParidade(String paridade) {
-        this.paridade = paridade;
-    }
-
-    public String getVariacaoSinal() {
-        return variacaoSinal;
-    }
-
-    public void setVariacaoSinal(String variacaoSinal) {
-        this.variacaoSinal = variacaoSinal;
-    }
-
-    public HashMap<String, String> getMonotonia() {
-        return monotonia;
-    }
-
-    public void setMonotonia(HashMap<String, String> monotonia) {
-        this.monotonia = monotonia;
-    }
-
-    public HashMap<String, String> getConcavidade() {
-        return concavidade;
-    }
-
-    public void setConcavidade(HashMap<String, String> concavidade) {
-        this.concavidade = concavidade;
-    }
-
-    public String getLeiFormacao() {
-        return leiFormacao;
-    }
-
-    public void setLeiFormacao(String leiFormacao) {
+    // Protected constructor para inicializar atributos comuns
+    protected Funcao(String leiFormacao) {
         this.leiFormacao = leiFormacao;
     }
 
-    public String getContradominio() {
-        return contradominio;
-    }
+    // Métodos abstratos (retornando um novo Funcao para Derivar/Integrar)
+    public abstract double calcular(double x); // Adicionei este para ser fundamental
+    public abstract double limitar(double ponto, Tendencia tendencia); // Exemplo de como pode ser mais específico
+    public abstract Funcao derivar(); // Retorna uma nova função derivada
+    public abstract Funcao integrar(); // Retorna uma nova função integral
 
-    public void setContradominio(String contradominio) {
-        this.contradominio = contradominio;
-    }
+    // Getters and setters (ajustados para os novos tipos)
+    public List<Intervalo> getDominio() { return dominio; }
+    public void setDominio(List<Intervalo> dominio) { this.dominio = dominio; }
+
+    public List<Double> getZeros() { return zeros; }
+    public void setZeros(List<Double> zeros) { this.zeros = zeros; }
+
+    public ParidadeEnum getParidade() { return paridade; }
+    public void setParidade(ParidadeEnum paridade) { this.paridade = paridade; }
+
+    public Map<Intervalo, String> getVariacaoSinal() { return variacaoSinal; }
+    public void setVariacaoSinal(Map<Intervalo, String> variacaoSinal) { this.variacaoSinal = variacaoSinal; }
+
+    public Map<Intervalo, String> getMonotonia() { return monotonia; }
+    public void setMonotonia(Map<Intervalo, String> monotonia) { this.monotonia = monotonia; }
+
+    public Map<Intervalo, String> getConcavidade() { return concavidade; }
+    public void setConcavidade(Map<Intervalo, String> concavidade) { this.concavidade = concavidade; }
+
+    public String getLeiFormacao() { return leiFormacao; }
+    // Setter for leiFormacao might not be needed if it's derived from constructor
+
+    public List<Intervalo> getContradominio() { return contradominio; }
+    public void setContradominio(List<Intervalo> contradominio) { this.contradominio = contradominio; }
 }
