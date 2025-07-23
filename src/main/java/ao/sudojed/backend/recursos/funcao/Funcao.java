@@ -3,17 +3,10 @@ package ao.sudojed.backend.recursos.funcao;
 import java.util.List;
 import java.util.Map;
 
-enum ParidadeEnum {
-    PAR,
-    IMPAR,
-    NENHUMA
-}
+import ao.sudojed.backend.recursos.funcao.enums.ParidadeEnum;
+import ao.sudojed.backend.recursos.funcao.enums.Tendencia;
 
-enum Tendencia {
-    MAIS_INFINITO,
-    MENOS_INFINITO,
-    FINITO
-}
+
 
 class Intervalo {
     private double inicio;
