@@ -7,7 +7,7 @@ import java.util.ArrayList; // Para inicializar Listas, se usadas
 import java.util.Collections; // Para operações de lista, se usadas
 
 import ao.sudojed.backend.recursos.funcao.Funcao;
-import ao.sudojed.backend.recursos.funcao.Tendencia;
+import ao.sudojed.backend.recursos.funcao.enums.*;
 
 /**
  * Classe que representa uma função polinomial.
@@ -40,9 +40,8 @@ public class FuncaoPolinomial extends Funcao {
     }
 
     // --- Métodos herdados de Funcao ---
-
     @Override
-    public void limitar(int tendencia) {
+    public double limitar(double ponto, Tendencia tendencia) {
         // Implementação simplificada de limite para polinômios
         // Esta é uma simplificação. Limites para um ponto específico ou infinito
         // podem ser mais complexos de representar textualmente ou numericamente.
