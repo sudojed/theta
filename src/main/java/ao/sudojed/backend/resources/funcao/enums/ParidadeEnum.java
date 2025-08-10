@@ -1,4 +1,4 @@
-package ao.sudojed.backend.recursos.funcao.enums;
+package ao.sudojed.backend.resources.funcao.enums;
 
 public enum ParidadeEnum {
     PAR,
