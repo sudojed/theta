@@ -1,10 +1,10 @@
-package ao.sudojed.backend.recursos.funcao;
+package ao.sudojed.backend.resources.funcao;
 
 import java.util.List;
 import java.util.Map;
 
-import ao.sudojed.backend.recursos.funcao.enums.ParidadeEnum;
-import ao.sudojed.backend.recursos.funcao.enums.Tendencia;
+import ao.sudojed.backend.resources.funcao.enums.ParidadeEnum;
+import ao.sudojed.backend.resources.funcao.enums.Tendencia;
 
 
 

@@ -13,24 +13,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - springboot-network
 
-  app:
-    build: .
-    container_name: epsilon_backend
-    restart: always
-    depends_on:
-      - postgres
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/epsilon
-    ports:
-      - "8080:8080"
-    networks:
-      - springboot-network
+  
 
 volumes:
   postgres_data:
-
-networks:
-  springboot-network:
