@@ -1,6 +1,7 @@
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/Application.java
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/handlers/FunctionHandler.java
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/resources/funcao/Funcao.java
+/home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/resources/funcao/Intervalo.java
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/resources/funcao/enums/ParidadeEnum.java
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/resources/funcao/enums/Tendencia.java
 /home/abnerlourenco/Documents/running/epsilon/epsilon_backend/src/main/java/ao/sudojed/backend/resources/funcao/polinomial/Afim.java
