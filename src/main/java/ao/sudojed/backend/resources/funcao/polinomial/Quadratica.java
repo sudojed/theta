@@ -5,9 +5,9 @@ import ao.sudojed.backend.resources.funcao.enums.Tendencia;
 
 public class Quadratica implements Funcao {
 
-    private Double coeficienteQuadratico; // a
-    private Double coeficienteLinear; // b
-    private Double termoIndependente; // c
+    private Double coeficienteQuadratico;
+    private Double coeficienteLinear;
+    private Double termoIndependente;
 
     public Quadratica(
         Double coeficienteQuadratico,
@@ -21,7 +21,6 @@ public class Quadratica implements Funcao {
 
     @Override
     public double calcular(double x) {
-        // f(x) = ax² + bx + c
         return (
             coeficienteQuadratico * x * x +
             coeficienteLinear * x +
@@ -31,20 +30,16 @@ public class Quadratica implements Funcao {
 
     @Override
     public double limitar(double ponto, Tendencia tendencia) {
-        // Para função quadrática, o limite é sempre o valor da função no ponto
         return calcular(ponto);
     }
 
     @Override
     public Funcao derivar() {
-        // A derivada de f(x) = ax² + bx + c é f'(x) = 2ax + b
         return new Afim(2 * coeficienteQuadratico, coeficienteLinear);
     }
 
     @Override
     public Funcao integrar() {
-        // A integral de f(x) = ax² + bx + c é F(x) = (a/3)x³ + (b/2)x² + cx + C
-        // Retornando uma função anônima que implementa a integral
         final double a = coeficienteQuadratico;
         final double b = coeficienteLinear;
         final double c = termoIndependente;
@@ -74,7 +69,6 @@ public class Quadratica implements Funcao {
         };
     }
 
-    // Getters e Setters
     public Double getCoeficienteQuadratico() {
         return coeficienteQuadratico;
     }
