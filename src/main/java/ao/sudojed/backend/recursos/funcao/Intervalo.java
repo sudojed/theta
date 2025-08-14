@@ -1,4 +1,4 @@
-package ao.sudojed.backend.resources.funcao;
+package ao.sudojed.backend.recursos.funcao;
 
 public class Intervalo {
     private String inicio;

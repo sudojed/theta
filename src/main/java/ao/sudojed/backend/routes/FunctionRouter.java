@@ -13,6 +13,6 @@ public class FunctionRouter {
 
     @Bean
     RouterFunction<ServerResponse> routes(FunctionHandler handler) {
-        return route().GET("/function", handler::getEstudoCompleto).build();
+        return route().GET("/function", handler::listar).build();
     }
 }
