@@ -1,2 +1,2 @@
-# epsilon
+# theta
 Polinomial expressions simplifier

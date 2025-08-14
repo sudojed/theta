@@ -1,2 +1,0 @@
-# epsilon
-Polinomial expressions simplifier
