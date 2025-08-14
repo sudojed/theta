@@ -1,6 +1,6 @@
 # Classe Afim - Implementação de Funções Lineares
 
-Este documento descreve a implementação da classe `Afim` no projeto Epsilon Backend, que representa funções afins (lineares) do tipo f(x) = ax + b.
+Este documento descreve a implementação da classe `Afim` no projeto Theta Backend, que representa funções afins (lineares) do tipo f(x) = ax + b.
 
 ## Visão Geral
 

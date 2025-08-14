@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   postgres:
@@ -6,15 +6,13 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_DB: epsilon_db
-      POSTGRES_USER: epsilon_user
-      POSTGRES_PASSWORD: epsilon_pass
+      POSTGRES_DB: theta_db
+      POSTGRES_USER: theta_user
+      POSTGRES_PASSWORD: theta_pass
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
-  
 
 volumes:
   postgres_data:
