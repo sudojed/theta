@@ -1,11 +1,13 @@
-ao/sudojed/backend/resources/funcao/Intervalo.class
 ao/sudojed/backend/Application.class
 ao/sudojed/backend/resources/funcao/polinomial/Afim.class
 ao/sudojed/backend/routes/FunctionRouter.class
+ao/sudojed/backend/resources/funcao/polinomial/Quadratica$1.class
 ao/sudojed/backend/resources/funcao/Funcao.class
-ao/sudojed/backend/resources/funcao/polinomial/Quadratica.class
-ao/sudojed/backend/resources/funcao/enums/Tendencia.class
+ao/sudojed/backend/examples/AfimExample.class
 ao/sudojed/backend/handlers/FunctionHandler.class
 ao/sudojed/backend/resources/funcao/polinomial/FuncaoPolinomial.class
+ao/sudojed/backend/resources/funcao/Intervalo.class
+ao/sudojed/backend/resources/funcao/polinomial/Quadratica.class
+ao/sudojed/backend/resources/funcao/enums/Tendencia.class
 ao/sudojed/backend/resources/funcao/polinomial/Cubica.class
 ao/sudojed/backend/resources/funcao/enums/ParidadeEnum.class
