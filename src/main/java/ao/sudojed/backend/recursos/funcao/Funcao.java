@@ -105,6 +105,14 @@ public abstract class Funcao {
         return leiFormacao;
     }
 
+    public String getContinuidade() {
+        return continuidade;
+    }
+
+    public void setContinuidade(String continuidade) {
+        this.continuidade = continuidade;
+    }
+
     public List<Intervalo> getContradominio() {
         return contradominio;
     }

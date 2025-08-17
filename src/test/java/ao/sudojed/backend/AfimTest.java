@@ -2,8 +2,9 @@ package ao.sudojed.backend;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import ao.sudojed.backend.resources.funcao.enums.ParidadeEnum;
-import ao.sudojed.backend.resources.funcao.polinomial.Afim;
+import ao.sudojed.backend.recursos.funcao.enums.ParidadeEnum;
+import ao.sudojed.backend.recursos.funcao.enums.Tendencia;
+import ao.sudojed.backend.recursos.funcao.polinomial.Afim;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,13 +51,13 @@ class AfimTest {
 
     @Test
     void testLeiFormacao() {
-        assertEquals("f(x) = 2.0x + 3.0", funcaoAfim.getLeiFormacao());
+        assertEquals("2.0x+3.0", funcaoAfim.getLeiFormacao());
 
         Afim afim2 = new Afim(1.0, -2.0);
-        assertEquals("f(x) = x - 2.0", afim2.getLeiFormacao());
+        assertEquals("x-2.0", afim2.getLeiFormacao());
 
         Afim afim3 = new Afim(-1.0, 0.0);
-        assertEquals("f(x) = -x", afim3.getLeiFormacao());
+        assertEquals("-x", afim3.getLeiFormacao());
     }
 
     @Test
@@ -77,12 +78,12 @@ class AfimTest {
     @Test
     void testMonotonia() {
         Map<String, Object> estudo = funcaoAfim.getEstudoCompleto();
-        assertEquals("função crescente", estudo.get("monotonia"));
+        assertEquals("crescente", estudo.get("monotonaSimples"));
 
         Afim afimDecrescente = new Afim(-2.0, 5.0);
         Map<String, Object> estudoDecrescente =
             afimDecrescente.getEstudoCompleto();
-        assertEquals("função decrescente", estudoDecrescente.get("monotonia"));
+        assertEquals("decrescente", estudoDecrescente.get("monotonaSimples"));
     }
 
     @Test
@@ -96,12 +97,12 @@ class AfimTest {
     void testEstudoCompleto() {
         Map<String, Object> estudo = funcaoAfim.getEstudoCompleto();
 
-        assertNotNull(estudo.get("lei_formacao"));
-        assertNotNull(estudo.get("raizes"));
+        assertNotNull(estudo.get("leiFormacao"));
+        assertNotNull(estudo.get("zeros"));
         assertNotNull(estudo.get("dominio"));
         assertNotNull(estudo.get("coeficientes"));
         assertEquals(1, estudo.get("grau"));
-        assertEquals("função crescente", estudo.get("monotonia"));
+        assertEquals("crescente", estudo.get("monotonaSimples"));
     }
 
     @Test
