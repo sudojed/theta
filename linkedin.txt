@@ -1,0 +1,17 @@
+Em meados de 2024, enquanto resolvia alguns desafios de algoritmos na Beecrowd, surgiu uma ideia: criar um conjunto de classes que fossem capazes de identificar e retornar atributos de expressões matemáticas, como domínio, contradomínio, conjunto imagem, paridade, sinal, monotonia, além de permitir operações como limitar, derivar e integrar.
+
+O que começou como um simples conjunto de classes escritas em um “Java da vida” acabou evoluindo para uma API open source, que hoje já recebe sugestões de melhorias e novas features da comunidade.
+
+Durante esse processo, algo me chamou a atenção: em matemática, uma função recebe um valor do domínio e devolve exatamente um valor na imagem — cada entrada gera uma única saída.
+
+Essa lógica se conecta de forma curiosa com o React:
+
+Um componente funcional recebe props (domínio);
+
+Processa essas informações;
+
+Retorna um único elemento JSX (imagem).
+
+Talvez por isso eu sempre caía em erro quando tentava retornar mais de um elemento HTML sem agrupamento — afinal, assim como em matemática, uma entrada não pode gerar múltiplas saídas independentes.
+
+E assim, entre desafios de algoritmos e linhas de código, nasceu uma ponte entre matemática e programação, mostrando como conceitos aparentemente distantes podem se complementar e inspirar soluções criativas.
