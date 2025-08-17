@@ -1,7 +1,7 @@
 package ao.sudojed.backend.examples;
 
-import ao.sudojed.backend.resources.funcao.Funcao;
-import ao.sudojed.backend.resources.funcao.polinomial.Afim;
+import ao.sudojed.backend.recursos.funcao.Funcao;
+import ao.sudojed.backend.recursos.funcao.polinomial.Afim;
 import java.util.Map;
 
 public class AfimExample {
@@ -42,7 +42,7 @@ public class AfimExample {
         System.out.println(
             "Coeficiente linear: " + funcao.getCoeficienteLinear()
         );
-        System.out.println("Monotonia: " + funcao.getMonotoniaString());
+        System.out.println("Monotonia: " + funcao.getMonotoniaSimples());
         System.out.println("Paridade: " + funcao.getParidade());
         System.out.println("Zeros da função: " + funcao.getZeros());
         System.out.println("Domínio: " + funcao.getDominio());
