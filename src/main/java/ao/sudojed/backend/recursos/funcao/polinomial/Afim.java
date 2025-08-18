@@ -7,15 +7,16 @@ public class Afim extends FuncaoPolinomial {
 
     private Double coeficienteAngular;
     private Double coenficienteLinear;
+    private String leiFormacao;
 
     public Afim(String expr) {
-        String regex = "(^[+-]?\\d+)x([+-]?\\d+)";
+        String regex = "((^[+-]?\\d+)x)([+-]?\\d+)";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher("2x+5");
+        this.leiFormacao = expr;
+        Matcher matcher = pattern.matcher(leiFormacao);
         if (matcher.find()) {
-            this.coeficienteAngular = Double.valueOf(matcher.group(1));
             this.coeficienteAngular = Double.valueOf(matcher.group(2));
-
+            this.coenficienteLinear = Double.valueOf(matcher.group(3));
         }
     }
 
@@ -24,6 +25,16 @@ public class Afim extends FuncaoPolinomial {
         this.coenficienteLinear = coeficienteLinear;
     }
 
-    
+    @Override
+    public Double derivar() {
+        String regex = "((^[+-]?\\d+)x)([+-]?\\d+)";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(this.leiFormacao);
+        Double derivada = .0;
+        if (matcher.find()) {
+            derivada = Double.valueOf(matcher.group(2));
+        }
+        return derivada;
+    }
 
 }
