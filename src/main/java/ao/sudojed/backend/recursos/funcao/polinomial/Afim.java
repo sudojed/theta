@@ -6,23 +6,27 @@ import java.util.regex.Pattern;
 public class Afim extends FuncaoPolinomial {
 
     private Double coeficienteAngular;
-    private Double coenficienteLinear;
+    private Double coeficienteLinear;
     private String leiFormacao;
 
+    public static void main(String[] args) {
+        System.out.println(new Afim("2x-7").derivar());
+    }
+
     public Afim(String expr) {
-        String regex = "((^[+-]?\\d+)x)([+-]?\\d+)";
+        String regex = "((^[+-]?\\d+)x(^1)?)([+-]?\\d+)?";
         Pattern pattern = Pattern.compile(regex);
         this.leiFormacao = expr;
         Matcher matcher = pattern.matcher(leiFormacao);
         if (matcher.find()) {
             this.coeficienteAngular = Double.valueOf(matcher.group(2));
-            this.coenficienteLinear = Double.valueOf(matcher.group(3));
+            this.coeficienteLinear = Double.valueOf(matcher.group(4));
         }
     }
 
     public Afim(Double coeficienteAngular, Double coeficienteLinear) {
         this.coeficienteAngular = coeficienteAngular;
-        this.coenficienteLinear = coeficienteLinear;
+        this.coeficienteLinear = coeficienteLinear;
     }
 
     @Override
@@ -36,5 +40,25 @@ public class Afim extends FuncaoPolinomial {
         }
         return derivada;
     }
+    
+    @Overrid
+    public Double integrar(){
+        
+    }
+    
+    public void setCoeficienteLinear(Double coeficienteLinear) {
+        this.coeficienteLinear = coeficienteLinear;
+    }
 
+    public void setCoeficienteAngular(Double coeficienteAngular) {
+        this.coeficienteAngular = coeficienteAngular;
+    }
+    
+    public Double getCoeficienteAngular() {
+        return this.coeficienteAngular;
+    }
+
+    public Double getCoeficienteLinear() {
+        return this.coeficienteLinear;
+    }
 }
