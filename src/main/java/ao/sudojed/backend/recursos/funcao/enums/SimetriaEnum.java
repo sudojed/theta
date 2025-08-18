@@ -1,6 +1,6 @@
 package ao.sudojed.backend.recursos.funcao.enums;
 
-public enum ParidadeEnum {
+public enum SimetriaEnum {
     PAR,
     IMPAR,
     NENHUMA
