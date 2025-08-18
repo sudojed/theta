@@ -28,7 +28,7 @@ public class FuncaoPolinomial implements Funcao{
     }
 
     @Override
-    public Double integrar() {
+    public String integrar() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
