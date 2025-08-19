@@ -8,7 +8,7 @@ public class Afim extends FuncaoPolinomial {
     private Double coeficienteAngular;
     private Double coeficienteLinear;
     private String leiFormacao;
-    private String regex = "^([+-]?\\d+)x(\\^1)?([+-]?\\d+)?$";
+    private String regex = "^([+-]?\\d+)x(\\^(\\d))?([+-]?\\d+)?$";
     private String derivada;
     private String integral;
 
@@ -23,7 +23,7 @@ public class Afim extends FuncaoPolinomial {
 
         if (matcher.find()) {
             this.coeficienteAngular = Double.valueOf(matcher.group(1));
-            String b = matcher.group(3);
+            String b = matcher.group(4);
             this.coeficienteLinear = (b != null) ? Double.valueOf(b) : 0.0;
         } else {
             throw new IllegalArgumentException("Expressão inválida: " + expr);
@@ -49,9 +49,10 @@ public class Afim extends FuncaoPolinomial {
     public String integrar() {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.leiFormacao);
+        Double novoGrau = Double.parseDouble(matcher.group(3))+1;
         if (matcher.find()) {
-            this.integral = leiFormacao.replace(matcher.group(2), "^2");
-            this.integral = leiFormacao.replace(matcher.group(3), matcher.group(3).concat("x"));
+            this.integral = leiFormacao.replace(matcher.group(3), Double.toString(novoGrau));
+            this.integral = leiFormacao.replace(matcher.group(4), matcher.group(4).concat("x"));
         }
         return this.integral;
     }
@@ -60,7 +61,7 @@ public class Afim extends FuncaoPolinomial {
         this.coeficienteLinear = coeficienteLinear;
     }
 
-    public void setCoeficienteAngular(Double coeficienteAngular) {
+    public void setCoeficienteAngula(Double coeficienteAngular) {
         this.coeficienteAngular = coeficienteAngular;
     }
 
