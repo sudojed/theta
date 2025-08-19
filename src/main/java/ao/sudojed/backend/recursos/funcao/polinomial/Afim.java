@@ -3,27 +3,35 @@ package ao.sudojed.backend.recursos.funcao.polinomial;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Setter
+@Getter
 public class Afim extends FuncaoPolinomial {
 
     private Double coeficienteAngular;
     private Double coeficienteLinear;
     private String leiFormacao;
-    private String regex = "^([+-]?\\d+)x(\\^(\\d))?([+-]?\\d+)?$";
+    private String regex = "^([+-]?\\d+)x(?:\\^(\\d+))?([+-]?\\d+)?$"; // aceita expoente com mais de 1 dígito
     private String derivada;
     private String integral;
 
     public static void main(String[] args) {
-        System.out.println(new Afim("2x-7").integrar());
+        System.out.println(new Afim("2x-7").integrar()); // deve dar "x^2 - 7x"
     }
 
     public Afim(String expr) {
+        // garante que sempre exista ^1 se não for explícito
+        this.leiFormacao = expr.contains("^") ? expr : expr.replace("x", "x^1");
+
         Pattern pattern = Pattern.compile(regex);
-        this.leiFormacao = expr.replace("x", "x^1");
-        Matcher matcher = pattern.matcher(leiFormacao);
+        Matcher matcher = pattern.matcher(this.leiFormacao);
 
         if (matcher.find()) {
             this.coeficienteAngular = Double.valueOf(matcher.group(1));
-            String b = matcher.group(4);
+            String b = matcher.group(3);
             this.coeficienteLinear = (b != null) ? Double.valueOf(b) : 0.0;
         } else {
             throw new IllegalArgumentException("Expressão inválida: " + expr);
@@ -33,6 +41,7 @@ public class Afim extends FuncaoPolinomial {
     public Afim(Double coeficienteAngular, Double coeficienteLinear) {
         this.coeficienteAngular = coeficienteAngular;
         this.coeficienteLinear = coeficienteLinear;
+        this.leiFormacao = coeficienteAngular + "x^1" + (coeficienteLinear >= 0 ? "+" : "") + coeficienteLinear;
     }
 
     @Override
@@ -40,7 +49,10 @@ public class Afim extends FuncaoPolinomial {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.leiFormacao);
         if (matcher.find()) {
-            this.derivada = matcher.group(1);
+            // derivada de ax^n é a*n*x^(n-1)
+            int a = Integer.parseInt(matcher.group(1));
+            int n = matcher.group(2) == null ? 1 : Integer.parseInt(matcher.group(2));
+            this.derivada = String.valueOf(a * n);
         }
         return Double.parseDouble(derivada);
     }
@@ -49,27 +61,25 @@ public class Afim extends FuncaoPolinomial {
     public String integrar() {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.leiFormacao);
-        Double novoGrau = Double.parseDouble(matcher.group(3))+1;
+
         if (matcher.find()) {
-            this.integral = leiFormacao.replace(matcher.group(3), Double.toString(novoGrau));
-            this.integral = leiFormacao.replace(matcher.group(4), matcher.group(4).concat("x"));
+            int a = Integer.parseInt(matcher.group(1));
+            int n = matcher.group(2) == null ? 1 : Integer.parseInt(matcher.group(2));
+            int novoGrau = n + 1;
+            double novoCoef = (double) a / novoGrau;
+
+            StringBuilder sb = new StringBuilder();
+            sb.append(novoCoef).append("x^").append(novoGrau);
+
+            if (matcher.group(3) != null) {
+                int b = Integer.parseInt(matcher.group(3));
+                sb.append(b >= 0 ? "+" : "").append(b).append("x");
+            }
+
+            this.integral = sb.toString();
+            return this.integral;
         }
-        return this.integral;
+        throw new IllegalStateException("Não foi possível integrar: " + this.leiFormacao);
     }
 
-    public void setCoeficienteLinear(Double coeficienteLinear) {
-        this.coeficienteLinear = coeficienteLinear;
-    }
-
-    public void setCoeficienteAngula(Double coeficienteAngular) {
-        this.coeficienteAngular = coeficienteAngular;
-    }
-
-    public Double getCoeficienteAngular() {
-        return this.coeficienteAngular;
-    }
-
-    public Double getCoeficienteLinear() {
-        return this.coeficienteLinear;
-    }
 }

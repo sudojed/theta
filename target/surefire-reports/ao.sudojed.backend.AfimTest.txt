@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ao.sudojed.backend.AfimTest
--------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s -- in ao.sudojed.backend.AfimTest
