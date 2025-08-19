@@ -14,12 +14,12 @@ public class Afim extends FuncaoPolinomial {
     private Double coeficienteAngular;
     private Double coeficienteLinear;
     private String leiFormacao;
-    private String regex = "^([+-]?\\d+)x(?:\\^(\\d+))?([+-]?\\d+)?$"; // aceita expoente com mais de 1 dígito
+    private String regex = "^([+-]?\\d+)x(?:\\^(\\d+))?([+-]?\\d+)?$"; 
     private String derivada;
     private String integral;
 
     public static void main(String[] args) {
-        System.out.println(new Afim("2x-7").integrar()); // deve dar "x^2 - 7x"
+        System.out.println(new Afim("2x-7").integrar()); 
     }
 
     public Afim(String expr) {
