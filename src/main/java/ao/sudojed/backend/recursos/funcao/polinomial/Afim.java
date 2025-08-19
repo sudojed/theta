@@ -23,9 +23,7 @@ public class Afim extends FuncaoPolinomial {
     }
 
     public Afim(String expr) {
-        // garante que sempre exista ^1 se não for explícito
-        this.leiFormacao = expr.contains("^") ? expr : expr.replace("x", "x^1");
-
+        this.leiFormacao = expr.contains("^") ? expr : expr.replaceAll("x(?!\\^)", "x^1");
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.leiFormacao);
 
@@ -49,7 +47,6 @@ public class Afim extends FuncaoPolinomial {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(this.leiFormacao);
         if (matcher.find()) {
-            // derivada de ax^n é a*n*x^(n-1)
             int a = Integer.parseInt(matcher.group(1));
             int n = matcher.group(2) == null ? 1 : Integer.parseInt(matcher.group(2));
             this.derivada = String.valueOf(a * n);
