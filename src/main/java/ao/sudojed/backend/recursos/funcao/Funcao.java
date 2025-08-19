@@ -5,7 +5,7 @@ public interface Funcao{
 
     public abstract Double limitar(Double tendencia);
     public abstract Double derivar();
-    public abstract Double integrar();
+    public abstract String integrar();
     
 }
 
