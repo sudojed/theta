@@ -1,11 +1,2 @@
 /home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/Application.java
 /home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/handlers/FunctionHandler.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/Funcao.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/Intervalo.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/enums/SimetriaEnum.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/enums/Tendencia.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/polinomial/Afim.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/polinomial/Cubica.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/polinomial/FuncaoPolinomial.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/recursos/funcao/polinomial/Quadratica.java
-/home/abnerlourenco/Documents/running/theta/theta_backend/src/main/java/ao/sudojed/backend/routes/FunctionRouter.java
